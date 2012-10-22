@@ -1,4 +1,5 @@
 # Copyright (C) 2007, Red Hat, Inc.
+# Copyright (C) 2010, Plan Ceibal <comunidad@plan.ceibal.edu.uy>
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -117,6 +118,7 @@ LARGE_ICON_SIZE = zoom(55 * 2.0)
 XLARGE_ICON_SIZE = zoom(55 * 2.75)
 
 client = GConf.Client.get_default()
+THEME = client.get_string('/desktop/sugar/interface/gtk_theme')
 FONT_SIZE = client.get_float('/desktop/sugar/font/default_size')
 FONT_FACE = client.get_string('/desktop/sugar/font/default_face')
 
@@ -142,6 +144,12 @@ COLOR_INACTIVE_FILL = Color('#9D9FA1')
 COLOR_INACTIVE_STROKE = Color('#757575')
 COLOR_TEXT_FIELD_GREY = Color('#E5E5E5')
 COLOR_HIGHLIGHT = Color('#E7E7E7')
+if (THEME == 'sugar-contrast'):
+    COLOR_DESKTOP_ICON = Color('#000033')
+    COLOR_BG_CP = Color('#000033')
+else:
+    COLOR_DESKTOP_ICON = Color('#808080')
+    COLOR_BG_CP = Color('#FFFFFF')
 
 PALETTE_CURSOR_DISTANCE = zoom(10)
 
