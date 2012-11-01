@@ -7,7 +7,7 @@ Version: 0.97.8
 Release: 2.dx4
 URL: http://wiki.laptop.org/go/Sugar
 Source0: http://download.sugarlabs.org/sources/sucrose/glucose/%{name}/%{name}-%{version}.tar.bz2
-Source1: macros.sugar
+Source1: macros.sugar-toolkit-gtk3
 License: LGPLv2+
 Group: System Environment/Libraries
 
@@ -58,7 +58,7 @@ make %{?_smp_mflags} V=1
 make install DESTDIR=%{buildroot}
 
 mkdir -p %{buildroot}/%{_sysconfdir}/rpm/
-install -p %{SOURCE1} %{buildroot}/%{_sysconfdir}/rpm/macros.sugar
+install -p %{SOURCE1} %{buildroot}/%{_sysconfdir}/rpm/macros.sugar-toolkit-gtk3
 
 %find_lang %name
 
@@ -73,7 +73,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %defattr(-,root,root,-)
 %doc COPYING README
 %{python_sitelib}/*
-%{_sysconfdir}/rpm/macros.sugar
+%{_sysconfdir}/rpm/macros.sugar-toolkit-gtk3
 %{_libdir}/girepository-1.0/*.typelib
 %{_libdir}/lib*.so.*
 %{_bindir}/sugar-activity
