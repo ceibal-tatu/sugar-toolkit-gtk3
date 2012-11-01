@@ -3,7 +3,7 @@
 Summary: Sugar toolkit GTK+ 3
 Name: sugar-toolkit-gtk3
 Epoch: 1
-Version: 0.97.7
+Version: 0.97.8
 Release: 2.dx4
 URL: http://wiki.laptop.org/go/Sugar
 Source0: http://download.sugarlabs.org/sources/sucrose/glucose/%{name}/%{name}-%{version}.tar.bz2
