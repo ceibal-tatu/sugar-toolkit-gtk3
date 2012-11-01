@@ -29,6 +29,7 @@ from gi.repository import Gdk
 from gi.repository import Gtk
 from gi.repository import GObject
 
+from gi.repository import SugarGestures
 from sugar3.graphics import palettegroup
 from sugar3.graphics import animator
 from sugar3.graphics import style
@@ -439,6 +440,9 @@ class PaletteWindow(GObject.GObject):
     Provides basic management of child widget, invoker, and animation.
     """
 
+    PRIMARY = 0
+    SECONDARY = 1
+
     __gsignals__ = {
         'popup': (GObject.SignalFlags.RUN_FIRST, None, ([])),
         'popdown': (GObject.SignalFlags.RUN_FIRST, None, ([])),
@@ -510,6 +514,8 @@ class PaletteWindow(GObject.GObject):
                 'mouse-leave', self._invoker_mouse_leave_cb))
             self._invoker_hids.append(self._invoker.connect(
                 'right-click', self._invoker_right_click_cb))
+            self._invoker_hids.append(self._invoker.connect(
+                'toggle-state', self._invoker_toggle_state_cb))
 
     def get_invoker(self):
         return self._invoker
@@ -626,7 +632,13 @@ class PaletteWindow(GObject.GObject):
         self.on_invoker_leave()
 
     def _invoker_right_click_cb(self, invoker):
-        self.popup(immediate=True)
+        self.popup(immediate=True, state=self.SECONDARY)
+
+    def _invoker_toggle_state_cb(self, invoker):
+        if self.is_up():
+            self.popdown(immediate=True)
+        else:
+            self.popup(immediate=True, state=self.SECONDARY)
 
     def __enter_notify_cb(self, widget):
         self.on_enter()
@@ -706,6 +718,7 @@ class Invoker(GObject.GObject):
         'mouse-enter': (GObject.SignalFlags.RUN_FIRST, None, ([])),
         'mouse-leave': (GObject.SignalFlags.RUN_FIRST, None, ([])),
         'right-click': (GObject.SignalFlags.RUN_FIRST, None, ([])),
+        'toggle-state': (GObject.SignalFlags.RUN_FIRST, None, ([])),
         'focus-out': (GObject.SignalFlags.RUN_FIRST, None, ([])),
     }
 
@@ -731,6 +744,7 @@ class Invoker(GObject.GObject):
         self._cursor_y = -1
         self._palette = None
         self._cache_palette = True
+        self._toggle_palette = False
 
     def attach(self, parent):
         self.parent = parent
@@ -917,6 +931,10 @@ class Invoker(GObject.GObject):
         self._ensure_palette_exists()
         self.emit('right-click')
 
+    def notify_toggle_state(self):
+        self._ensure_palette_exists()
+        self.emit('toggle-state')
+
     def get_palette(self):
         return self._palette
 
@@ -951,6 +969,18 @@ class Invoker(GObject.GObject):
                                      getter=get_cache_palette)
     """Whether the invoker will cache the palette after its creation. Defaults
     to True.
+    """
+
+    def get_toggle_palette(self):
+        return self._toggle_palette
+
+    def set_toggle_palette(self, toggle_palette):
+        self._toggle_palette = toggle_palette
+
+    toggle_palette = GObject.property(type=object, setter=set_toggle_palette,
+                                      getter=get_toggle_palette)
+    """Whether the invoker will popup/popdown the Palette on
+    button left click/touch tap. Defaults to False.
     """
 
     def __palette_popdown_cb(self, palette):
@@ -1033,14 +1063,18 @@ class WidgetInvoker(Invoker):
                                  gap[0], gap[1], gap[1] + gap[2])
 
     def __enter_notify_event_cb(self, widget, event):
-        self.notify_mouse_enter()
+        if event.mode == Gdk.CrossingMode.NORMAL:
+            self.notify_mouse_enter()
 
     def __leave_notify_event_cb(self, widget, event):
         if event.mode == Gdk.CrossingMode.NORMAL:
             self.notify_mouse_leave()
 
     def __button_release_event_cb(self, widget, event):
-        if event.button == 3:
+        if event.button == 1:
+            if self.props.toggle_palette:
+                self.notify_toggle_state()
+        elif event.button == 3:
             self.notify_right_click()
             return True
         else:
@@ -1072,6 +1106,9 @@ class CursorInvoker(Invoker):
         self._leave_hid = None
         self._release_hid = None
         self._item = None
+        self._long_pressed_recognized = False
+        self._long_pressed_hid = None
+        self._long_pressed_controller = SugarGestures.LongPressController()
 
         if parent:
             self.attach(parent)
@@ -1086,12 +1123,18 @@ class CursorInvoker(Invoker):
                                              self.__leave_notify_event_cb)
         self._release_hid = self._item.connect('button-release-event',
                                                self.__button_release_event_cb)
+        self._long_pressed_hid = self._long_pressed_controller.connect('pressed', \
+                self.__long_pressed_event_cb, self._item)
+        self._long_pressed_controller.attach(self._item, \
+                SugarGestures.EventControllerFlags.NONE)
 
     def detach(self):
         Invoker.detach(self)
         self._item.disconnect(self._enter_hid)
         self._item.disconnect(self._leave_hid)
         self._item.disconnect(self._release_hid)
+        self._long_pressed_controller.detach(self._item)
+        self._long_pressed_controller.disconnect(self._long_pressed_hid)
 
     def get_default_position(self):
         return self.AT_CURSOR
@@ -1106,7 +1149,8 @@ class CursorInvoker(Invoker):
         return rect
 
     def __enter_notify_event_cb(self, button, event):
-        self.notify_mouse_enter()
+        if event.mode == Gdk.CrossingMode.NORMAL:
+            self.notify_mouse_enter()
         return False
 
     def __leave_notify_event_cb(self, button, event):
@@ -1115,11 +1159,21 @@ class CursorInvoker(Invoker):
         return False
 
     def __button_release_event_cb(self, button, event):
+        if self._long_pressed_recognized:
+            self._long_pressed_recognized = False
+            return True
+        if event.button == 1:
+            if self.props.toggle_palette:
+                self.notify_toggle_state()
         if event.button == 3:
             self.notify_right_click()
             return True
         else:
             return False
+
+    def __long_pressed_event_cb(self, controller, x, y, widget):
+        self._long_pressed_recognized = True
+        self.notify_right_click()
 
     def get_toplevel(self):
         return self._item.get_toplevel()

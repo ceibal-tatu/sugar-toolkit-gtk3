@@ -90,9 +90,6 @@ class Palette(PaletteWindow):
     display such information.
     """
 
-    PRIMARY = 0
-    SECONDARY = 1
-
     __gsignals__ = {
         'activate': (GObject.SignalFlags.RUN_FIRST, None, ([])),
     }
@@ -178,9 +175,6 @@ class Palette(PaletteWindow):
     def _setup_widget(self):
         PaletteWindow._setup_widget(self)
         self._widget.connect('destroy', self.__destroy_cb)
-
-    def _invoker_right_click_cb(self, invoker):
-        self.popup(immediate=True, state=self.SECONDARY)
 
     def __destroy_cb(self, palette):
         self._secondary_anim.stop()
