@@ -51,6 +51,7 @@ the SugarExt-1.0 library through gobject-introspection.
 %setup -q
 
 %build
+autoreconf -i
 %configure
 make %{?_smp_mflags} V=1
 
