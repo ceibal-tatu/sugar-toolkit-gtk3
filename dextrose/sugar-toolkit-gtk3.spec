@@ -1,13 +1,52 @@
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
+# Environment setup:
+#
+#	mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+#	echo | bzip2 -c > ~/rpmbuild/SOURCES/sugar-toolkit-gtk3.tar.bz2
+#	cd ~/build/ && git clone git://git.sugarlabs.org/dextrose/sugar.git
+#	ln -s ~/build/sugar/dextrose/sugar-toolkit-gtk3.spec \
+#	      ~/rpmbuild/SPECS/sugar-tookit-gtk3.spec
+#	rpmbuild -ba ~/rpmbuild/SPECS/sugar-toolkit-gtk3.spec
+#
+
+%define git_repo sugar-toolkit-gtk3
+%define git_head devel
+
+%define git_repodir %(echo ~/build/)
+%define git_gitdir %{git_repodir}/%{git_repo}/.git
+
+%define git_get_source pushd %{git_repodir}/%{git_repo} ;\
+        /usr/bin/git archive --format=tar --prefix=%{name}-%{version}/ %{git_head} | \
+                bzip2 -c > %{_sourcedir}/%{name}-%{version}.tar.bz2 ;\
+        popd
+
+%define git_clone_source if [ -d %{name}-%{version} ] ; then \
+                cd %{name}-%{version} && git pull origin %{git_head} ; \
+        else \
+                git clone %{git_gitdir} %{name}-%{version} && \
+                cd %{name}-%{version}/ ; \
+        fi
+
+%define git_submodule git submodule
+%define git_prep_submodules %{git_submodule} init --cloned && %{git_submodule} update
+
+%define git_version %(git --git-dir=%{git_gitdir} describe --tags 2> /dev/null || echo 0.0-`git --git-dir=%{git_gitdir} log --oneline | wc -l`-g`git --git-dir=%{git_gitdir} describe --always`)
+
+# if the git repo has tags
+%define git_get_ver %(echo %{git_version} | sed 's/^v\\?\\(.*\\)-\\([0-9]\\+\\)-g.*$/\\1/;s/-//')
+%define git_get_rel %(echo %{git_version} | sed 's/^v\\?\\(.*\\)-\\([0-9]\\+-g.*\\)$/\\2/;s/-/_/')
+
+
+
 Summary: Sugar toolkit GTK+ 3
 Name: sugar-toolkit-gtk3
 Epoch: 1
-Version: 0.97.8
-Release: 2.dx4
+Version: %git_get_ver
+Release: %git_get_rel
 URL: http://wiki.laptop.org/go/Sugar
 Source0: http://download.sugarlabs.org/sources/sucrose/glucose/%{name}/%{name}-%{version}.tar.bz2
-Source1: macros.sugar-toolkit-gtk3
+#Source1: macros.sugar-toolkit-gtk3
 License: LGPLv2+
 Group: System Environment/Libraries
 
@@ -48,9 +87,12 @@ This package contains the invocation information for accessing
 the SugarExt-1.0 library through gobject-introspection.
 
 %prep
+%git_get_source
+
 %setup -q
 
 %build
+sh autogen.sh
 autoreconf -i
 %configure
 make %{?_smp_mflags} V=1
@@ -59,7 +101,7 @@ make %{?_smp_mflags} V=1
 make install DESTDIR=%{buildroot}
 
 mkdir -p %{buildroot}/%{_sysconfdir}/rpm/
-install -p %{SOURCE1} %{buildroot}/%{_sysconfdir}/rpm/macros.sugar-toolkit-gtk3
+install -p %{_builddir}/%{name}-%{version}/dextrose/macros.sugar-toolkit-gtk3 %{buildroot}/%{_sysconfdir}/rpm/macros.sugar-toolkit-gtk3
 
 %find_lang %name
 
@@ -72,7 +114,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %files -f %{name}.lang
 %defattr(-,root,root,-)
-%doc COPYING README
+%doc COPYING README CHANGES
 %{python_sitelib}/*
 %{_sysconfdir}/rpm/macros.sugar-toolkit-gtk3
 %{_libdir}/girepository-1.0/*.typelib
