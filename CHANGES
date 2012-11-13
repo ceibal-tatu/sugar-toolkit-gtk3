@@ -1,3 +1,805 @@
+commit f29a685eeeb96b101cad5e4d6a6d0b7c5d6220ac
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Wed Nov 14 00:53:39 2012 +0100
+
+    Create CHANGES file on build time
+
+commit 6133c93cf020b78e9f9bd44df321e237e44e4a37
+Merge: 6d1d262 302c46d
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Sun Nov 11 00:27:38 2012 +0100
+
+    Merge remote-tracking branch 'ajay/0.97.7-as-base' into devel
+
+commit 302c46d3dc6179f2cc2302aca8b8acceaa278808
+Merge: 818c7d4 458e357
+Author: Ajay Garg <ajay@activitycentral.com>
+Date:   Sat Nov 10 18:40:27 2012 +0530
+
+    Merge tag 'v0.97.10' into 0.97.7-as-base
+
+commit 818c7d41eac81b5e212bf9dced24186c34615a41
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Sat Nov 10 11:54:10 2012 +0100
+
+    Release 0.97.10
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 89b4a57da44622a2ff664381a26e13fbd8b84e1a
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Nov 8 18:47:04 2012 -0300
+
+    Update style of Description palette - SL #4167
+    
+    We can now use the PaletteMenuBox.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 458e35758532582b66c862249f1937b7d67564a8
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Sat Nov 10 11:54:10 2012 +0100
+
+    Release 0.97.10
+
+commit ac3b0a3a14b62d2d0dc52c42252af9d71330474b
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Nov 8 18:47:04 2012 -0300
+
+    Update style of Description palette - SL #4167
+    
+    We can now use the PaletteMenuBox.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+
+commit 74033f4de72d5afbd9fe266405212ed899ed44e8
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 8 10:34:48 2012 +0100
+
+    CellRendererInvoker: no need to reset the controller manually anymore
+    
+    This got fixed properly in b2df1358447c39e3a4720af2286846d516ea3b02
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 9c21fc17805d98a60990e560eb51a97132d80717
+Author: Carlos Garnacho <carlos@lanedo.com>
+Date:   Wed Nov 7 12:08:23 2012 +0100
+
+    Reset event controllers on GdkEventGrabBroken
+    
+    This event means that the widget being listened won't receive
+    further input events as something else grabbed devices, reset
+    event controllers in this case.
+    
+    This helps with SL #4128 where we did reset the long press
+    controller manually.
+    
+    Signed-off-by: Carlos Garnacho <carlos@lanedo.com>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit bfa3d72023e99c328a1ff092ff6d683e1b44fad8
+Merge: 12575fa dcfc92d
+Author: Ajay Garg <ajay@activitycentral.com>
+Date:   Fri Nov 9 13:58:20 2012 +0530
+
+    Merge tag 'v0.97.9' into 0.97.7-as-base
+
+commit 6d1d2628e4a8826371d6463aa2721a0c104c48ee
+Merge: b664227 dcfc92d
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 8 23:11:45 2012 +0100
+
+    Merge tag 'v0.97.9' into devel
+
+commit b6642279a91efbb6d2644a829154dd5f3dfc9e89
+Merge: 9502498 12575fa
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 8 22:07:41 2012 +0100
+
+    Merge remote-tracking branch 'ajay/0.97.7-as-base' into devel
+
+commit c64d5590b0798c54bb864af14c05edc2cccd6f89
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 8 10:34:48 2012 +0100
+
+    CellRendererInvoker: no need to reset the controller manually anymore
+    
+    This got fixed properly in b2df1358447c39e3a4720af2286846d516ea3b02
+
+commit b2df1358447c39e3a4720af2286846d516ea3b02
+Author: Carlos Garnacho <carlos@lanedo.com>
+Date:   Wed Nov 7 12:08:23 2012 +0100
+
+    Reset event controllers on GdkEventGrabBroken
+    
+    This event means that the widget being listened won't receive
+    further input events as something else grabbed devices, reset
+    event controllers in this case.
+    
+    This helps with SL #4128 where we did reset the long press
+    controller manually.
+    
+    Signed-off-by: Carlos Garnacho <carlos@lanedo.com>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+
+commit 12575fa6e58feaeb19b2fa2ac9caa0b2f155dba9
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Wed Nov 7 20:25:26 2012 +0100
+
+    Release 0.97.9
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit dcfc92dbd08bb3256d6dd583b93f1f48cb5908c6
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Wed Nov 7 20:25:26 2012 +0100
+
+    Release 0.97.9
+
+commit 9502498c8564730cdd217cc5653ac09028f06f8c
+Merge: 9f1cfc3 893ef3e
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Wed Nov 7 19:20:56 2012 +0100
+
+    Merge remote-tracking branch 'ajay/0.97.7-as-base' into devel
+    
+    Conflicts:
+    	src/sugar3/event-controller/sugar-long-press-controller.c
+    	src/sugar3/graphics/palettewindow.py
+    
+    Resolved using ajay's branch
+
+commit 9f1cfc351d6e0cb645c1dceb977a0683d0fed739
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Wed Nov 7 19:15:29 2012 +0100
+
+    Added CHANGES file
+
+commit efbf7018dd52cfeff2cefe8661eba090ca1abfa1
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Wed Nov 7 19:14:24 2012 +0100
+
+    Make rpm version/release be based on git
+
+commit 893ef3eba51452e1e139c2ceec76ab3e6b25c329
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Nov 1 17:45:37 2012 -0300
+
+    Set correct padding and size for the palette, window implementation - SL #4144
+    
+    A new API is provided: PaletteMenuBox is a container to be used in
+    Palette.set_content().  This is to hide the implementation details and
+    set the corresponding paddings and sizes.
+    
+    Usage:
+    
+      box = PaletteMenuBox()
+      palette.set_content(box)
+    
+    Then we can append items to it, like:
+    
+      item = PaletteMenuItem(text_label, icon, xo_color=xo_color)
+      box.append_child(item)
+    
+      separator = PaletteMenuItemSeparator()
+      box.append_child(item)
+    
+    We can also append any widget, and the box will handle the paddings:
+    
+      box.append_child(widget)
+    
+    style.DEFAULT_PADDING for horizontal and vertical padding is the
+    default.  But can be overriden:
+    
+      box.append_child(widget, horizontal_padding=0, vertical_padding=0)
+    
+    Details:
+    
+    - move palettemenuitem.py to palettemenu.py
+    
+    - Width of palette: make it a minimun size of 3 Sugar grid cells.
+    
+    - Padding of content, secondary box: we need top and bottom padding,
+      which can be set when packing the items container inside the
+      secondary box.
+    
+    - Padding of menu items: needs to be just for left and right, so move
+      the padding to a new horizontal box.
+    
+    - Padding of separators: unlike GtkSeparatorMenuItem, GtkSeparator
+      doesn't support padding.  But we can wrap it in a GtkEventBox and
+      force the height of the widget there.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 517590366812c821264c4e2724025f432641badc
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Wed Nov 7 00:45:58 2012 +0100
+
+    CellRendererInvoker: always reset the long-press controller
+    
+    Follow up of: ad9b0e98668954022a98cb5fdc63196d947c1b38
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 6e75e8d0893b4d3f51e9c1725c4fcb05ac1215e8
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 1 19:05:54 2012 +0100
+
+    CellRendererInvoker: add support for long-press events
+    
+    This one is tricky because where the CellRendererInvoker is
+    used (Home View activity list and Journal list view) we do
+    use Palettes based on a GtkMenu. In the Journal list view
+    this Palette has submenus so it can not be easily replaced
+    with our custom Palette. That is why I am trying to make this
+    case work with a GtkMenu.
+    
+    When the Palette does pop up it grabs the focus. This means that
+    the invoker does not see a TOUCH_END event. Same is the longpress
+    controller that is why we have to reset the controller when
+    the long-press is detected, otherwise it is not usable a second
+    time.
+    
+    The default behavior of a GtkMenu is that it does pop down
+    on a long press/release event. So when doing a long press
+    on the icon the Palette was popping down directly. We can
+    stop this by listening on the button-release event in the
+    Menu and return True when the event happens in the invoker
+    coordinates.
+    
+    Finally there are several issues with motion events: in the
+    invoker we listen to motion events on the treeview in order to
+    be able to popup/popdown the Palette on hovering over the
+    icon. This event is triggered as well when the icon is
+    tapped. We do check the origin of the event and do not trigger
+    the enter/leave when originated from a touchscreen. We do setup
+    the path for the CellRenderer however.
+    
+    The second case where the motion events are triggered is
+    when you tap somewhere in the Palette when it is up. For
+    example you want to get to one of the submenues. Since the
+    Palette tracks motion events to work for the hover case [2]
+    we do get a leave event when the Palette is tapped and the
+    Palette does pop down. Same here, we check if the event
+    originated from a touchscreen and do discard it in that
+    case.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 8cf533aed754a3d01801dd7e02c5d5f4409e7611
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Nov 6 08:39:27 2012 +0100
+
+    DescriptionButton, ShareButton: set the toggle_palette option to True
+    
+    Setting this option will popup the Palette on left click or tap
+    and popdown the Palette if it is up. This functionality has been
+    added with c4165967d5e05607db8b3e0969b516da87855431.
+    
+    The ShareButton, which derrives from the RadioMenuButton, had the
+    desired behavior already overriding the on_clicked method, we
+    do this now in the invoker.
+    
+    The DescriptionButton did only handle the popup part so far, with
+    this change the Palette will also popdown when the button is clicked
+    and the Palette is up.
+    
+    Since both are Toolbuttons we have to set the hide_tooltip_on_click
+    property to False otherwise the popdown part would not function, see
+    1a8f89226b4f979000d80edc7123b7d22b23dc91 for more info.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit e44360a646ae336692eb26ba03718f2c44823346
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Mon Nov 5 09:33:00 2012 -0300
+
+    Palette Menu Item: set/unset INSENSITIVE state flag - SL #4144
+    
+    The theme will display the insensitive items grayed out.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 5505eb30bfb4d4e1e94f0aab61f93ddf4f9cc99b
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Nov 1 17:45:37 2012 -0300
+
+    Set correct padding and size for the palette, window implementation - SL #4144
+    
+    A new API is provided: PaletteMenuBox is a container to be used in
+    Palette.set_content().  This is to hide the implementation details and
+    set the corresponding paddings and sizes.
+    
+    Usage:
+    
+      box = PaletteMenuBox()
+      palette.set_content(box)
+    
+    Then we can append items to it, like:
+    
+      item = PaletteMenuItem(text_label, icon, xo_color=xo_color)
+      box.append_child(item)
+    
+      separator = PaletteMenuItemSeparator()
+      box.append_child(item)
+    
+    We can also append any widget, and the box will handle the paddings:
+    
+      box.append_child(widget)
+    
+    style.DEFAULT_PADDING for horizontal and vertical padding is the
+    default.  But can be overriden:
+    
+      box.append_child(widget, horizontal_padding=0, vertical_padding=0)
+    
+    Details:
+    
+    - move palettemenuitem.py to palettemenu.py
+    
+    - Width of palette: make it a minimun size of 3 Sugar grid cells.
+    
+    - Padding of content, secondary box: we need top and bottom padding,
+      which can be set when packing the items container inside the
+      secondary box.
+    
+    - Padding of menu items: needs to be just for left and right, so move
+      the padding to a new horizontal box.
+    
+    - Padding of separators: unlike GtkSeparatorMenuItem, GtkSeparator
+      doesn't support padding.  But we can wrap it in a GtkEventBox and
+      force the height of the widget there.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+
+commit 811676ef4edc0e4ae7b88d9f3fc09d5aa19671e3
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Wed Nov 7 00:45:58 2012 +0100
+
+    CellRendererInvoker: always reset the long-press controller
+    
+    Follow up of: ad9b0e98668954022a98cb5fdc63196d947c1b38
+
+commit ad9b0e98668954022a98cb5fdc63196d947c1b38
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 1 19:05:54 2012 +0100
+
+    CellRendererInvoker: add support for long-press events
+    
+    This one is tricky because where the CellRendererInvoker is
+    used (Home View activity list and Journal list view) we do
+    use Palettes based on a GtkMenu. In the Journal list view
+    this Palette has submenus so it can not be easily replaced
+    with our custom Palette. That is why I am trying to make this
+    case work with a GtkMenu.
+    
+    When the Palette does pop up it grabs the focus. This means that
+    the invoker does not see a TOUCH_END event. Same is the longpress
+    controller that is why we have to reset the controller when
+    the long-press is detected, otherwise it is not usable a second
+    time.
+    
+    The default behavior of a GtkMenu is that it does pop down
+    on a long press/release event. So when doing a long press
+    on the icon the Palette was popping down directly. We can
+    stop this by listening on the button-release event in the
+    Menu and return True when the event happens in the invoker
+    coordinates.
+    
+    Finally there are several issues with motion events: in the
+    invoker we listen to motion events on the treeview in order to
+    be able to popup/popdown the Palette on hovering over the
+    icon. This event is triggered as well when the icon is
+    tapped. We do check the origin of the event and do not trigger
+    the enter/leave when originated from a touchscreen. We do setup
+    the path for the CellRenderer however.
+    
+    The second case where the motion events are triggered is
+    when you tap somewhere in the Palette when it is up. For
+    example you want to get to one of the submenues. Since the
+    Palette tracks motion events to work for the hover case [2]
+    we do get a leave event when the Palette is tapped and the
+    Palette does pop down. Same here, we check if the event
+    originated from a touchscreen and do discard it in that
+    case.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
+commit 2834344b985ae9645627ce55c4204a4556db3385
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Nov 6 08:39:27 2012 +0100
+
+    DescriptionButton, ShareButton: set the toggle_palette option to True
+    
+    Setting this option will popup the Palette on left click or tap
+    and popdown the Palette if it is up. This functionality has been
+    added with c4165967d5e05607db8b3e0969b516da87855431.
+    
+    The ShareButton, which derrives from the RadioMenuButton, had the
+    desired behavior already overriding the on_clicked method, we
+    do this now in the invoker.
+    
+    The DescriptionButton did only handle the popup part so far, with
+    this change the Palette will also popdown when the button is clicked
+    and the Palette is up.
+    
+    Since both are Toolbuttons we have to set the hide_tooltip_on_click
+    property to False otherwise the popdown part would not function, see
+    1a8f89226b4f979000d80edc7123b7d22b23dc91 for more info.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
+commit f0fe248e3081e4a591a4a659a2c39d8752e4d515
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Mon Nov 5 09:33:00 2012 -0300
+
+    Palette Menu Item: set/unset INSENSITIVE state flag - SL #4144
+    
+    The theme will display the insensitive items grayed out.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+
+commit 6b66e61a958ae9344f6ed1604b7bea3c5f81af71
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Mon Nov 5 16:15:54 2012 +0100
+
+    SugarLongPressController: default the trigger_delay property to 600ms
+    
+    Discussed and compared options with Gary.
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 6786e03f7e8787352397734079b623b22008b30c
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 1 13:35:16 2012 +0100
+
+    WidgetInvoker: add support for long-press events, part of #4127
+    
+    The WidgetInvoker will decide if a long press has been made
+    or not. We watch out for TOUCH_END events and when a long-press
+    event has been seen before we stop further propagation of the
+    event, hence there won't be any button-release or clicked
+    events available to the user of the widget.
+    
+    There are several widgets using the WidgetInvoker, and those
+    handle differently touch events. The GtkButton does have a widget
+    implementation to handle touch events, it does stop further
+    propagation and emits the pressed/released signal for further
+    consumption [1]. We will not get a button-press/button-release
+    event for a touch event in this case.
+    
+    The default behaviour for widgets e.g. a TreeView is to transform
+    the touch events into pointer events [2], for those widgets we do get
+    a button-press/button-release event for a touch events.
+    
+    [1] http://git.gnome.org/browse/gtk+/tree/gtk/gtkbutton.c#n1809
+    [2] http://git.gnome.org/browse/gtk+/tree/gtk/gtkwidget.c#n5876
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 85692025feaa38959c6c6e8d13ebb50f20f3dd49
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 1 13:24:45 2012 +0100
+
+    TrayIcon: set the touch mask on the event box, part of SL #4127
+    
+    We do need to add the mask if we want to receive
+    the 'touch-event' signal. The Gtk.EventBox does
+    set the touch event mask by default.
+    
+    [1] http://developer.gnome.org/gtk3/3.4/GtkWidget.html#GtkWidget-touch-event
+    [2] http://git.gnome.org/browse/gtk+/tree/gtk/gtkeventbox.c#n411
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit fd979c7520f07294d9243af29d04e6422b7ada06
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Nov 1 10:23:49 2012 -0300
+
+    Add two testcases: tabs with and without buttons, and sensitive text
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 8cdd7ce295638b942094b7f33f96e71d5bb6e46e
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 31 11:44:20 2012 -0300
+
+    Set correct background for subtoolbars - SL #3987
+    
+    - remove set_app_paintable from _Box to fix the bad coloring of
+      subtoolbars.  The documentation say we can't rely on it to paint the
+      themed background when this is set [1].
+    
+    - don't call Gtk.EventBox.do_draw in the _Box do_draw because that
+      will not paint the child toolbar.  Call the child do_draw instead.
+    
+    - revert 7fc29c9d which was a workaround for the most frequent usage
+    
+    [1] http://developer.gnome.org/gtk3/stable/GtkWidget.html#gtk-widget-set-app-paintable
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 1d0eef463b346b53396ce16ecb82145491f53d10
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Oct 30 09:30:31 2012 +0100
+
+    GtkMenu: use point_in_cell_renderer for CellRendereInvoker to check if a point is in, part of SL #3921
+    
+    We use get_rect to check if the mouse is still over the invoker
+    in order to know when to popdown the Palette. The CellRendererInvoker
+    did return the allocation of the TreeView so far.
+    
+    We already have a point_in_cell_renderer method in the
+    CellRendererInvoker so we can use this to check if the mouse pointer
+    is over the cell or not. The method point_in_cell_renderer is made
+    public to make it clearer that it can be used from the outside.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 8f44ac298d70799655519d864bb004b349c6a7e7
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Oct 18 10:42:32 2012 -0300
+
+    CellRendererIcon: add active state - SL #3989
+    
+    For press feedback.  Do this connecting to the treeview press and
+    release signals, as the palette invoker does.  After this, the active
+    state can be styled in the artwork.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 6babfda8a75d2e176d14ec6aaaccda1938b29ab0
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 17 09:31:42 2012 -0300
+
+    CellRendererIcon: add prelight state and render background - SL #3989
+    
+    This is to provide feedback on mouse over.  The styling needs to be
+    done in the artwork component.
+    
+    Because cell renderers don't inherit GtkWidget anymore, the styling
+    can't be done using the __gtype_name__ .  Instead, it has to be done
+    adding a css class [1] to the style context, and rendering the background
+    in the reimplementation of the do_render method.
+    
+    For reference, see how GtkCellRendererToggle implements render [2] and
+    how Baobab app does it [3].
+    
+    [1] http://developer.gnome.org/gtk3/3.2/GtkStyleContext.html#gtk-style-context-add-class
+    [2] http://git.gnome.org/browse/gtk+/tree/gtk/gtkcellrenderertoggle.c#n338
+    [3] http://git.gnome.org/browse/baobab/tree/src/baobab-cellrenderers.vala#n125
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit ed4080fb9a33c1c70b4416dfbaa877e890befb64
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Oct 25 16:25:20 2012 +0200
+
+    Release 0.97.8
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 09eb659ba0ce8f9e868a4a24024698a6d3d65bae
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Oct 25 09:42:00 2012 +0000
+
+    CursurInvoker: add long-press gesture to raise Palette
+    
+    This adds long-press gesture detection to the CursorInvoker
+    used in the EventIcon. This will make this gesture available
+    for the View icons for example.
+    
+    We need to keep a boolean around to detect when a lon-press
+    event has happened and ignore the button-release event in
+    that case.
+    
+    We add as well checks in the CursorInvoker and WidgetInvoker
+    for the enter events if they are of type Gdk.CrossingMode.NORMAL,
+    otherwise the Gdk.CrossingMode.TOUCH_BEGIN enter events that are detected
+    when a touch starts are handled and interfere.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 3b4d929f01afbb6d90ad0c607c142ae9817e00b4
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Oct 25 09:11:30 2012 +0000
+
+    EventIcon: make sure we are able to dismiss the Palette
+    
+    Without this patch when tapping on an EventIcon
+    we do get a GDK_CROSSING_UNGRAB leave event when
+    the Palette is raised. Because of this the Invoker
+    does not know how to popdown the Palette when
+    you tap outside or when clicking on actions in the
+    Palette itself.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 913a431addd0d51e38326021a6006787ddac19b6
+Author: olpc user <olpc@xo-6d-61-0c.localdomain>
+Date:   Thu Oct 25 09:40:45 2012 +0000
+
+    EventController: make detach function available
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Reviewed-by: Carlos Garnacho <carlos@lanedo.com>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 3a4975728e03d0d39d0431c7f3c17de2278a749c
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Oct 25 08:17:42 2012 +0200
+
+    SugarLongPress gesture controller: remove animation
+    
+    We found out that the animation does not solve the issue
+    of visually indicating the long-press gesture to our
+    satisfaction. This is because you do not know upfront
+    which icon does have a primary action and more options
+    that can be revealed with the long-press gesture and
+    the animation itself. We would need to theme the gesture
+    better first as well. That the animation is a separate
+    window does raise several side effects as well which we
+    would need to solve first.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Reviewed-by: Carlos Garnacho <carlos@lanedo.com>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 2f8edc39585c4c81d9775303a1a76c8a3ff1b7d0
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Oct 23 09:24:56 2012 +0200
+
+    Window: show unfullscreen button on button and touch events
+    
+    We did track mouse motion events so far to show the unfullscreen
+    button. This adds the tracking of button events (left, middle, right
+    click) and touch tap.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 9ed93df3222af61df32b8889123468390991bab3
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Mon Oct 22 19:04:36 2012 +0200
+
+    Palettes: move PRIMARY and SECONDARY constant to the base class
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit a29b47c8cd491c85fcd73dda2a8936304a55c4ff
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Mon Oct 22 18:45:02 2012 +0200
+
+    ActivityButton: set the toggle_palette option to True
+    
+    Setting this option will popup the Palette on left click or tap
+    and popdown the Palette if it is up. This functionality has been
+    added with c4165967d5e05607db8b3e0969b516da87855431.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 68fbd3cba558d4fcbdffcf77734025d2605af180
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Mon Oct 22 18:42:30 2012 +0200
+
+    Add toggle_palette property for Palette invoker, SL #4065
+    
+    The property does specify whether the invoker will popup/popdown
+    the Palette on button left click/touch tap. It defaults to False.
+    
+    In the toolbutton we add a property if the tooltip should be popped
+    down on a click, this is set to true to have the same behavior as
+    before.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 6d64ed1d9eefbf5b17fb5309981c09f4b751d385
+Author: Carlos Garnacho <carlos@lanedo.com>
+Date:   Thu Oct 18 14:50:15 2012 +0200
+
+    gestures: Fix silly typo on get_center() implementation
+    
+    Don't mix up coordinates when calculating the bounding box center
+    
+    Signed-off-by: Carlos Garnacho <carlos@lanedo.com>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Tested-by: Manuel Kaufmann <humitos@gmail.com>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 8f4474f3f5ecd4db1622ad9967a928d16be82b54
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Mon Nov 5 16:15:54 2012 +0100
+
+    SugarLongPressController: default the trigger_delay property to 600ms
+    
+    Discussed and compared options with Gary.
+
+commit a515976dff8c26aa597d41f8bbee87cc33d1ceb7
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 1 13:35:16 2012 +0100
+
+    WidgetInvoker: add support for long-press events, part of #4127
+    
+    The WidgetInvoker will decide if a long press has been made
+    or not. We watch out for TOUCH_END events and when a long-press
+    event has been seen before we stop further propagation of the
+    event, hence there won't be any button-release or clicked
+    events available to the user of the widget.
+    
+    There are several widgets using the WidgetInvoker, and those
+    handle differently touch events. The GtkButton does have a widget
+    implementation to handle touch events, it does stop further
+    propagation and emits the pressed/released signal for further
+    consumption [1]. We will not get a button-press/button-release
+    event for a touch event in this case.
+    
+    The default behaviour for widgets e.g. a TreeView is to transform
+    the touch events into pointer events [2], for those widgets we do get
+    a button-press/button-release event for a touch events.
+    
+    [1] http://git.gnome.org/browse/gtk+/tree/gtk/gtkbutton.c#n1809
+    [2] http://git.gnome.org/browse/gtk+/tree/gtk/gtkwidget.c#n5876
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
+commit de7c5b90bde3b937f086d9a350bb5e1990cb5dcc
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 1 13:24:45 2012 +0100
+
+    TrayIcon: set the touch mask on the event box, part of SL #4127
+    
+    We do need to add the mask if we want to receive
+    the 'touch-event' signal. The Gtk.EventBox does
+    set the touch event mask by default.
+    
+    [1] http://developer.gnome.org/gtk3/3.4/GtkWidget.html#GtkWidget-touch-event
+    [2] http://git.gnome.org/browse/gtk+/tree/gtk/gtkeventbox.c#n411
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
 commit b79623f9e0613dbd0777097e09b6ff6c5be2549e
 Author: Santiago Collazo <scollazo@activitycentral.com>
 Date:   Thu Nov 1 17:56:05 2012 -0400
@@ -9,6 +811,34 @@ Author: Santiago Collazo <scollazo@activitycentral.com>
 Date:   Thu Nov 1 15:52:53 2012 -0400
 
     Renamed macros.sugar to avoid conflicts with sugar-toolkit package
+
+commit dd5a68e8ceef002dcda50c59e61e3411ebddcf4e
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Nov 1 10:23:49 2012 -0300
+
+    Add two testcases: tabs with and without buttons, and sensitive text
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+
+commit 25497c7677250850472219df316b8bf032b0bf25
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 31 11:44:20 2012 -0300
+
+    Set correct background for subtoolbars - SL #3987
+    
+    - remove set_app_paintable from _Box to fix the bad coloring of
+      subtoolbars.  The documentation say we can't rely on it to paint the
+      themed background when this is set [1].
+    
+    - don't call Gtk.EventBox.do_draw in the _Box do_draw because that
+      will not paint the child toolbar.  Call the child do_draw instead.
+    
+    - revert 7fc29c9d which was a workaround for the most frequent usage
+    
+    [1] http://developer.gnome.org/gtk3/stable/GtkWidget.html#gtk-widget-set-app-paintable
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
 
 commit b7fd44177e1afb8e1da5a3a14517818e0c1de83b
 Author: Santiago Collazo <scollazo@activitycentral.com>
@@ -22,6 +852,61 @@ Author: Santiago Collazo <scollazo@activitycentral.com>
 Date:   Thu Nov 1 07:15:43 2012 -0400
 
     Merge tag 'v0.97.8' into devel
+
+commit 8af0d49591383ec3e88458c0e8feb2d0d7ff695f
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Oct 30 09:30:31 2012 +0100
+
+    GtkMenu: use point_in_cell_renderer for CellRendereInvoker to check if a point is in, part of SL #3921
+    
+    We use get_rect to check if the mouse is still over the invoker
+    in order to know when to popdown the Palette. The CellRendererInvoker
+    did return the allocation of the TreeView so far.
+    
+    We already have a point_in_cell_renderer method in the
+    CellRendererInvoker so we can use this to check if the mouse pointer
+    is over the cell or not. The method point_in_cell_renderer is made
+    public to make it clearer that it can be used from the outside.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
+commit 2a76b10ce0eb2cfdaad5288e1e0f2999acedd735
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Oct 18 10:42:32 2012 -0300
+
+    CellRendererIcon: add active state - SL #3989
+    
+    For press feedback.  Do this connecting to the treeview press and
+    release signals, as the palette invoker does.  After this, the active
+    state can be styled in the artwork.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+
+commit f5b96e1fbd1d3e8fc2b781b159820ac56be68062
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 17 09:31:42 2012 -0300
+
+    CellRendererIcon: add prelight state and render background - SL #3989
+    
+    This is to provide feedback on mouse over.  The styling needs to be
+    done in the artwork component.
+    
+    Because cell renderers don't inherit GtkWidget anymore, the styling
+    can't be done using the __gtype_name__ .  Instead, it has to be done
+    adding a css class [1] to the style context, and rendering the background
+    in the reimplementation of the do_render method.
+    
+    For reference, see how GtkCellRendererToggle implements render [2] and
+    how Baobab app does it [3].
+    
+    [1] http://developer.gnome.org/gtk3/3.2/GtkStyleContext.html#gtk-style-context-add-class
+    [2] http://git.gnome.org/browse/gtk+/tree/gtk/gtkcellrenderertoggle.c#n338
+    [3] http://git.gnome.org/browse/baobab/tree/src/baobab-cellrenderers.vala#n125
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
 
 commit fd9d7dabbdf6067c668d7fee2c70ebfda4104222
 Author: Santiago Collazo <scollazo@activitycentral.com>
