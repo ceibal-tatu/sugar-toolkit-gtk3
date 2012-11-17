@@ -18,9 +18,9 @@
 
 %define git_get_source pushd %{git_repodir}/%{git_repo} ;\
 	/usr/bin/git pull ;\
-        /usr/bin/git log > CHANGES ;\
-        /usr/bin/git add CHANGES ;\
-        /usr/bin/git commit -m "Updated CHANGES file" ;\
+#        /usr/bin/git log > CHANGES ;\
+#        /usr/bin/git add CHANGES ;\
+#        /usr/bin/git commit -m "Updated CHANGES file" ;\
         /usr/bin/git archive --format=tar --prefix=%{name}-%{version}/ %{git_head} | \
                 bzip2 -c > %{_sourcedir}/%{name}-%{version}.tar.bz2 ;\
         popd
@@ -118,7 +118,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %files -f %{name}.lang
 %defattr(-,root,root,-)
-%doc COPYING README CHANGES
+%doc COPYING README NEWS
 %{python_sitelib}/*
 %{_sysconfdir}/rpm/macros.sugar-toolkit-gtk3
 %{_libdir}/girepository-1.0/*.typelib
