@@ -35,6 +35,7 @@ libsugarext_la_SOURCES =		\
 	eggsmclient.h			\
 	eggsmclient-private.h		\
 	eggsmclient-xsmp.c		\
+	eggsmclient-xsmp.h 		\
 	gsm-app.c			\
 	gsm-app.h			\
 	gsm-client.c			\
@@ -126,6 +127,8 @@ SugarExt_1_0_gir_FILES = \
 	acme-volume-alsa.h \
 	eggsmclient.c \
 	eggsmclient.h \
+	eggsmclient-xsmp.c \
+	eggsmclient-xsmp.h \
 	gsm-session.c \
 	gsm-session.h \
 	gsm-xsmp.c \
