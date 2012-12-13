@@ -145,8 +145,8 @@ COLOR_INACTIVE_STROKE = Color('#757575')
 COLOR_TEXT_FIELD_GREY = Color('#E5E5E5')
 COLOR_HIGHLIGHT = Color('#E7E7E7')
 if (THEME == 'sugar-contrast'):
-    COLOR_DESKTOP_ICON = Color('#000033')
-    COLOR_BG_CP = Color('#000033')
+    COLOR_DESKTOP_ICON = Color('#000000')
+    COLOR_BG_CP = Color('#FFFFFF')
 else:
     COLOR_DESKTOP_ICON = Color('#808080')
     COLOR_BG_CP = Color('#FFFFFF')
