@@ -209,22 +209,11 @@ class ActivityBundle(Bundle):
             return os.path.join(self._path, icon_path)
         else:
             icon_data = self.get_file(icon_path).read()
-
-            # First  check to see if the directory exists.
-            icon_files_dir_path = env.get_profile_path('icon_files')
-            if not os.path.isdir(icon_files_dir_path):
-                os.makedirs(icon_files_dir_path, 0770)
-
-            icon_file_path = os.path.join(icon_files_dir_path,
-                                          self._icon + '.svg')
-
-            # Write the icon-data file, if not already existing.
-            if not os.path.exists(icon_file_path):
-                icon_file_pointer = open(icon_file_path, 'w')
-                icon_file_pointer.write(icon_data)
-                icon_file_pointer.close()
-
-            return icon_file_path
+            temp_file, temp_file_path = tempfile.mkstemp(prefix=self._icon,
+                                                         suffix='.svg')
+            os.write(temp_file, icon_data)
+            os.close(temp_file)
+            return temp_file_path
 
     def get_activity_version(self):
         """Get the activity version"""
