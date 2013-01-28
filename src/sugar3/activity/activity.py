@@ -508,19 +508,7 @@ class Activity(Window, Gtk.Container):
         self.move(0, 0)
 
     def _adapt_window_to_screen(self):
-        screen = Gdk.Screen.get_default()
-        geometry = Gdk.Geometry()
-        geometry.max_width = geometry.base_width = geometry.min_width = \
-            screen.get_width()
-        geometry.max_height = geometry.base_height = geometry.min_height = \
-            screen.get_height()
-        geometry.width_inc = geometry.height_inc = geometry.min_aspect = \
-            geometry.max_aspect = 1
-        hints = Gdk.WindowHints(Gdk.WindowHints.ASPECT |
-                                Gdk.WindowHints.BASE_SIZE |
-                                Gdk.WindowHints.MAX_SIZE |
-                                Gdk.WindowHints.MIN_SIZE)
-        self.set_geometry_hints(None, geometry, hints)
+        return
 
     def __session_quit_requested_cb(self, session):
         self._quit_requested = True
