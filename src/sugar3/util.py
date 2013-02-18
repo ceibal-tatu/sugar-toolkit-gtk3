@@ -307,7 +307,7 @@ def timestamp_to_elapsed_string(timestamp, max_levels=2):
 
     return_string = ELAPSED % time_period
     if DISPLAY_USER_FRIENDLY_MESSAGE_FOR_NEVER_USED_ACTIVITIES is True:
-        if return_string == NEVER_USED_ACTIVITIES_TIME:
+        if str(timestamp) == NEVER_USED_ACTIVITIES_TIME:
             return_string = _('Not used yet')
 
     return return_string
