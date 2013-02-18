@@ -30,16 +30,6 @@ import tempfile
 import logging
 import atexit
 
-from gi.repository import GConf
-from gettext import gettext as _
-
-gconf_client = GConf.Client.get_default()
-DISPLAY_USER_FRIENDLY_MESSAGE_FOR_NEVER_USED_ACTIVITIES = \
-        gconf_client.get_bool('/desktop/sugar/display_user_friendly_message_for_never_used_activities')
-if DISPLAY_USER_FRIENDLY_MESSAGE_FOR_NEVER_USED_ACTIVITIES is True:
-    NEVER_USED_ACTIVITIES_TIME = \
-            gconf_client.get_string('/desktop/sugar/never_used_activities_time')
-
 
 _ = lambda msg: gettext.dgettext('sugar-toolkit', msg)
 
@@ -305,12 +295,7 @@ def timestamp_to_elapsed_string(timestamp, max_levels=2):
     if levels == 0:
         return NOW
 
-    return_string = ELAPSED % time_period
-    if DISPLAY_USER_FRIENDLY_MESSAGE_FOR_NEVER_USED_ACTIVITIES is True:
-        if return_string == NEVER_USED_ACTIVITIES_TIME:
-            return_string = _('Not used yet')
-
-    return return_string
+    return ELAPSED % time_period
 
 
 _tracked_paths = {}
