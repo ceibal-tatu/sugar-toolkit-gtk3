@@ -99,9 +99,11 @@ CONN_INTERFACE_ACTIVITY_PROPERTIES = 'org.laptop.Telepathy.ActivityProperties'
 gconf_client  = GConf.Client.get_default()
 GCONF_FOR_ACTIVITIES_NOT_REQUIRING_OSK_ACCUMULATION = \
         gconf_client.get('/desktop/sugar/activities_not_requiring_osk_accumulation')
-ACTIVITIES_NOT_REQUIRING_OSK_ACCUMULATION = \
-        GCONF_FOR_ACTIVITIES_NOT_REQUIRING_OSK_ACCUMULATION.get_list()
 
+ACTIVITIES_NOT_REQUIRING_OSK_ACCUMULATION = []
+if GCONF_FOR_ACTIVITIES_NOT_REQUIRING_OSK_ACCUMULATION is not None:
+    ACTIVITIES_NOT_REQUIRING_OSK_ACCUMULATION = \
+            GCONF_FOR_ACTIVITIES_NOT_REQUIRING_OSK_ACCUMULATION.get_list()
 
 
 class _ActivitySession(GObject.GObject):
