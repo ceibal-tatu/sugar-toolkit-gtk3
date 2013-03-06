@@ -777,8 +777,6 @@ class Invoker(GObject.GObject):
 
         self._screen_area = Gdk.Rectangle()
         self._screen_area.x = self._screen_area.y = 0
-        self._screen_area.width = Gdk.Screen.width()
-        self._screen_area.height = Gdk.Screen.height()
         self._position_hint = self.ANCHORED
         self._cursor_x = -1
         self._cursor_y = -1
@@ -841,8 +839,8 @@ class Invoker(GObject.GObject):
     def _in_screen(self, rect):
         return rect.x >= self._screen_area.x and \
                rect.y >= self._screen_area.y and \
-               rect.x + rect.width <= self._screen_area.width and \
-               rect.y + rect.height <= self._screen_area.height
+               rect.x + rect.width <= (Gdk.Screen.width() - style.GRID_CELL_SIZE) and \
+               rect.y + rect.height <= (Gdk.Screen.height() - style.GRID_CELL_SIZE)
 
     def _get_area_in_screen(self, rect):
         """Return area of rectangle visible in the screen"""
@@ -850,9 +848,9 @@ class Invoker(GObject.GObject):
         x1 = max(rect.x, self._screen_area.x)
         y1 = max(rect.y, self._screen_area.y)
         x2 = min(rect.x + rect.width,
-                self._screen_area.x + self._screen_area.width)
+                self._screen_area.x + Gdk.Screen.width() - style.GRID_CELL_SIZE)
         y2 = min(rect.y + rect.height,
-                self._screen_area.y + self._screen_area.height)
+                self._screen_area.y + Gdk.Screen.height() - style.GRID_CELL_SIZE)
 
         return (x2 - x1) * (y2 - y1)
 
@@ -882,8 +880,8 @@ class Invoker(GObject.GObject):
         rect.x = max(0, rect.x)
         rect.y = max(0, rect.y)
 
-        rect.x = min(rect.x, self._screen_area.width - rect.width)
-        rect.y = min(rect.y, self._screen_area.height - rect.height)
+        rect.x = min(rect.x, Gdk.Screen.width() - style.GRID_CELL_SIZE - rect.width)
+        rect.y = min(rect.y, Gdk.Screen.height()- style.GRID_CELL_SIZE - rect.height)
 
         return rect
 
@@ -913,7 +911,7 @@ class Invoker(GObject.GObject):
 
         if best_alignment in self.LEFT or best_alignment in self.RIGHT:
             dtop = rect.y - screen_area.y
-            dbottom = screen_area.y + screen_area.height - rect.y - rect.width
+            dbottom = screen_area.y + Gdk.Screen.height() - style.GRID_CELL_SIZE - rect.y - rect.width
 
             iv = 0
 
@@ -928,7 +926,7 @@ class Invoker(GObject.GObject):
 
         elif best_alignment in self.TOP or best_alignment in self.BOTTOM:
             dleft = rect.x - screen_area.x
-            dright = screen_area.x + screen_area.width - rect.x - rect.width
+            dright = screen_area.x + Gdk.Screen.width() - style.GRID_CELL_SIZE - rect.x - rect.width
 
             ih = 0
 
