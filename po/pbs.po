@@ -7,199 +7,201 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-01-20 21:07-0500\n"
-"PO-Revision-Date: 2012-06-18 06:09+0200\n"
+"PO-Revision-Date: 2013-04-10 05:28+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: zh_TW\n"
+"Language: pbs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: ../src/sugar3/activity/activity.py:376
 #, python-format
 msgid "%s Activity"
-msgstr "%s 活動"
+msgstr ""
 
 #: ../src/sugar3/activity/activity.py:873
 msgid "Keep error"
-msgstr "保存時發生錯誤"
+msgstr ""
 
 #: ../src/sugar3/activity/activity.py:874
 msgid "Keep error: all changes will be lost"
-msgstr "保存時發生錯誤：所作的變動將遺失"
+msgstr ""
 
 #: ../src/sugar3/activity/activity.py:877
 msgid "Don't stop"
-msgstr "不停止"
+msgstr ""
 
 #: ../src/sugar3/activity/activity.py:880
 msgid "Stop anyway"
-msgstr "確定停止"
+msgstr ""
 
 #: ../src/sugar3/activity/widgets.py:89
 msgid "Stop"
-msgstr "停止"
+msgstr ""
 
 #: ../src/sugar3/activity/widgets.py:101
 msgid "Undo"
-msgstr "復原"
+msgstr ""
 
 #: ../src/sugar3/activity/widgets.py:109
 msgid "Redo"
-msgstr "取消復原"
+msgstr ""
 
 #: ../src/sugar3/activity/widgets.py:116
 msgid "Copy"
-msgstr "複製"
+msgstr ""
 
 #: ../src/sugar3/activity/widgets.py:124
 msgid "Paste"
-msgstr "貼上"
+msgstr ""
 
 #: ../src/sugar3/activity/widgets.py:135
 msgid "Private"
-msgstr "私人"
+msgstr ""
 
 #: ../src/sugar3/activity/widgets.py:142
 msgid "My Neighborhood"
-msgstr "我的鄰居"
+msgstr ""
 
 #: ../src/sugar3/activity/widgets.py:235
 msgid "Description"
-msgstr "描述"
+msgstr ""
 
 #: ../src/sugar3/graphics/alert.py:287 ../src/sugar3/graphics/alert.py:429
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #: ../src/sugar3/graphics/alert.py:291 ../src/sugar3/graphics/alert.py:337
 #: ../src/sugar3/graphics/alert.py:479
 msgid "Ok"
-msgstr "確定"
+msgstr ""
 
 #: ../src/sugar3/graphics/alert.py:434
 msgid "Continue"
-msgstr "繼續"
+msgstr ""
 
 #: ../src/sugar3/graphics/colorbutton.py:54
 msgid "Choose a color"
-msgstr "選擇喜歡的顏色"
+msgstr ""
 
 #: ../src/sugar3/graphics/colorbutton.py:271
 msgid "Red"
-msgstr "紅色"
+msgstr ""
 
 #: ../src/sugar3/graphics/colorbutton.py:273
 msgid "Green"
-msgstr "綠色"
+msgstr ""
 
 #: ../src/sugar3/graphics/colorbutton.py:275
 msgid "Blue"
-msgstr "藍色"
+msgstr ""
 
 #: ../src/sugar3/util.py:217
 msgid " and "
-msgstr " 和 "
+msgstr ""
 
 #: ../src/sugar3/util.py:218
 msgid ", "
-msgstr ", "
+msgstr ""
 
-# TRANS: Indicating something that just happened, eg. "just now", "moments ago"
 #. TRANS: Indicating something that just happened, eg. "just now", "moments ago"
 #: ../src/sugar3/util.py:221
 msgid "Seconds ago"
-msgstr "數秒鐘前"
+msgstr ""
 
-# TRANS: Indicating time passed, eg. "[10 day, 5 hours] ago",
-# "[2 minutes] in the past", or "[3 years, 1 month] earlier"
 #. TRANS: Indicating time passed, eg. "[10 day, 5 hours] ago",
 #. "[2 minutes] in the past", or "[3 years, 1 month] earlier"
 #: ../src/sugar3/util.py:225
 #, python-format
 msgid "%s ago"
-msgstr "%s 前"
+msgstr ""
 
-# TRANS: Relative dates (eg. 1 month and 5 days).
 #. TRANS: Relative dates (eg. 1 month and 5 days).
 #: ../src/sugar3/util.py:240
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
-msgstr[0] "%d 年"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/sugar3/util.py:241
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
-msgstr[0] "%d 個月"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/sugar3/util.py:242
 #, python-format
 msgid "%d week"
 msgid_plural "%d weeks"
-msgstr[0] "%d 週"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/sugar3/util.py:243
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d 天"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/sugar3/util.py:244
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] "%d 小時"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/sugar3/util.py:245
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "%d 分鐘"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/sugar3/util.py:346
 msgid "Empty"
-msgstr "無"
+msgstr ""
 
 #: ../src/sugar3/util.py:348
 #, python-format
 msgid "%d B"
-msgstr "%d B"
+msgstr ""
 
 #: ../src/sugar3/util.py:350
 #, python-format
 msgid "%d KB"
-msgstr "%d KB"
+msgstr ""
 
 #: ../src/sugar3/util.py:352
 #, python-format
 msgid "%d MB"
-msgstr "%d MB"
+msgstr ""
 
 #: ../src/sugar3/util.py:354
 #, python-format
 msgid "%d GB"
-msgstr "%d GB"
+msgstr ""
 
 #: ../src/sugar3/mime.py:54
 msgid "Text"
-msgstr "文字"
+msgstr "Keich´kily´´e"
 
 #: ../src/sugar3/mime.py:63
 msgid "Image"
-msgstr "圖片"
+msgstr "kutau"
 
 #: ../src/sugar3/mime.py:69
 msgid "Audio"
-msgstr "聲音"
+msgstr "Li´jio"
 
 #: ../src/sugar3/mime.py:77
 msgid "Video"
-msgstr "影像"
+msgstr "Ndaka´an leet"
 
 #: ../src/sugar3/mime.py:89
 msgid "Link"
-msgstr "連結"
+msgstr "Maje´uts"
