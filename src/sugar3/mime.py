@@ -32,6 +32,7 @@ from sugar3 import _sugarbaseext
 
 _ = lambda msg: gettext.dgettext('sugar-base', msg)
 
+GENERIC_TYPE_READ_TEXT = 'Read_Text'
 GENERIC_TYPE_TEXT = 'Text'
 GENERIC_TYPE_IMAGE = 'Image'
 GENERIC_TYPE_AUDIO = 'Audio'
@@ -49,6 +50,15 @@ def _get_supported_image_mime_types():
 _extensions = {}
 _globs_timestamps = []
 _generic_types = [
+{
+    'id': GENERIC_TYPE_READ_TEXT,
+    'name': _('Text'),
+    'icon': 'text-x-generic',
+    'types': [
+        'application/pdf', 'image/vnd.djvu',
+        'image/x.djvu', 'image/tiff', 'application/epub+zip',
+        'text/plain', 'application/zip'],
+},
 {
     'id': GENERIC_TYPE_TEXT,
     'name': _('Text'),
