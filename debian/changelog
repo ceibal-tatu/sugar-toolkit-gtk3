@@ -1,3 +1,9 @@
+sugar-toolkit-gtk3 (0.98-3) tatu; urgency=medium
+
+  * Fixed dependency to libgirepository. 
+
+ -- Plan Ceibal <ceibal@plan.ceibal.edu.uy>  Tue, 26 May 2015 00:30:26 -0300
+
 sugar-toolkit-gtk3 (0.98-2) tatu; urgency=medium
 
   * Repackage for tatu. 
