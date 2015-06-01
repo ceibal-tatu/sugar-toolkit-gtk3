@@ -1,3 +1,9 @@
+sugar-toolkit-gtk3 (0.98-1-20140107+tatu1) tatu; urgency=medium
+
+  * Fixed version to be above 0.98-1-20140107.
+
+ -- Plan Ceibal <ceibal@plan.ceibal.edu.uy>  Sun, 31 May 2015 21:40:18 -0300
+
 sugar-toolkit-gtk3 (0.98-4+tatu1) tatu; urgency=medium
 
   * Fixed dependencies. 
