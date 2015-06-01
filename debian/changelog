@@ -1,3 +1,9 @@
+sugar-toolkit-gtk3 (1:0.98-1+tatu1) tatu; urgency=medium
+
+  *  Updated epoch to workaround broken versioning of classmate image.
+
+ -- Plan Ceibal <ceibal@plan.ceibal.edu.uy>  Sun, 31 May 2015 21:48:01 -0300
+
 sugar-toolkit-gtk3 (0.98-1-20140107+tatu1) tatu; urgency=medium
 
   * Fixed version to be above 0.98-1-20140107.
